@@ -1,9 +1,84 @@
 ---
 import Layout from "@/layouts/main.astro"
+
+const textSizes = [
+  { cls: "text-3xl",  px: 30, usage: "Hero headings, prominent titles" },
+  { cls: "text-2xl",  px: 24, usage: "Page headings (h1 on content pages)" },
+  { cls: "text-xl",   px: 20, usage: "Sub-headings, card titles" },
+  { cls: "text-lg",   px: 18, usage: "Lead paragraphs, section descriptions" },
+  { cls: "text-base", px: 16, usage: "Default body text" },
+  { cls: "text-sm",   px: 14, usage: "Form labels, secondary body text" },
+  { cls: "text-xs",   px: 12, usage: "Labels, badges, helper text, captions" },
+]
+
+const fontWeights = [
+  { cls: "font-light",    weight: 300, usage: "Decorative text at large display sizes" },
+  { cls: "font-normal",   weight: 400, usage: "Default body text" },
+  { cls: "font-medium",   weight: 500, usage: "Interactive elements, nav items, emphasis" },
+  { cls: "font-semibold", weight: 600, usage: "Headings, labels, button text" },
+  { cls: "font-bold",     weight: 700, usage: "Strong emphasis, alerts" },
+]
 ---
 
 <Layout title="Fonts — Interfero Design System">
-  <div class="p-6">
-    <h1 class="text-2xl font-semibold">Fonts</h1>
+  <div class="p-6 space-y-10">
+    <div>
+      <h1 class="text-2xl font-semibold">Fonts</h1>
+      <p class="text-muted-foreground mt-1">Typography scale and weights used throughout the design system.</p>
+    </div>
+
+    <section class="space-y-3">
+      <div>
+        <h2 class="text-lg font-medium">Type Scale</h2>
+        <p class="text-sm text-muted-foreground">All available text sizes with their Tailwind class, pixel value, and recommended usage.</p>
+      </div>
+      <div class="border border-border rounded-lg overflow-hidden">
+        <div class="grid grid-cols-[auto_10rem_4rem_1fr] text-sm">
+          {textSizes.map((size, i) => (
+            <>
+              <div class={`flex items-center px-4 py-3 whitespace-nowrap ${i > 0 ? 'border-t border-border' : ''}`}>
+                <span class={size.cls}>Interfero Design System</span>
+              </div>
+              <div class={`flex items-center px-4 py-3 ${i > 0 ? 'border-t border-border' : ''}`}>
+                <code class="font-mono text-foreground">{size.cls}</code>
+              </div>
+              <div class={`flex items-center px-4 py-3 text-muted-foreground ${i > 0 ? 'border-t border-border' : ''}`}>
+                {size.px}px
+              </div>
+              <div class={`flex items-center px-4 py-3 text-muted-foreground ${i > 0 ? 'border-t border-border' : ''}`}>
+                {size.usage}
+              </div>
+            </>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="space-y-3">
+      <div>
+        <h2 class="text-lg font-medium">Font Weights</h2>
+        <p class="text-sm text-muted-foreground">Available weights for Figtree Variable.</p>
+      </div>
+      <div class="border border-border rounded-lg overflow-hidden">
+        <div class="grid grid-cols-[auto_10rem_4rem_1fr] text-sm">
+          {fontWeights.map((w, i) => (
+            <>
+              <div class={`flex items-center px-4 py-3 whitespace-nowrap ${i > 0 ? 'border-t border-border' : ''}`}>
+                <span class={`text-xl ${w.cls}`}>Interfero Design System</span>
+              </div>
+              <div class={`flex items-center px-4 py-3 ${i > 0 ? 'border-t border-border' : ''}`}>
+                <code class="font-mono text-foreground">{w.cls}</code>
+              </div>
+              <div class={`flex items-center px-4 py-3 text-muted-foreground ${i > 0 ? 'border-t border-border' : ''}`}>
+                {w.weight}
+              </div>
+              <div class={`flex items-center px-4 py-3 text-muted-foreground ${i > 0 ? 'border-t border-border' : ''}`}>
+                {w.usage}
+              </div>
+            </>
+          ))}
+        </div>
+      </div>
+    </section>
   </div>
 </Layout>
