@@ -1,9 +1,156 @@
 ---
 import Layout from "@/layouts/main.astro"
+
+const colorGroups = [
+  {
+    name: "Core",
+    description: "Base background and text colors used throughout the UI.",
+    colors: [
+      { name: "Background", variable: "--background" },
+      { name: "Foreground", variable: "--foreground" },
+    ],
+  },
+  {
+    name: "Surfaces",
+    description: "Colors for elevated surfaces like cards and popovers.",
+    colors: [
+      { name: "Card", variable: "--card" },
+      { name: "Card Foreground", variable: "--card-foreground" },
+      { name: "Popover", variable: "--popover" },
+      { name: "Popover Foreground", variable: "--popover-foreground" },
+    ],
+  },
+  {
+    name: "Semantic",
+    description: "Semantic colors for actions, states, and hierarchy.",
+    colors: [
+      { name: "Primary", variable: "--primary" },
+      { name: "Primary Foreground", variable: "--primary-foreground" },
+      { name: "Secondary", variable: "--secondary" },
+      { name: "Secondary Foreground", variable: "--secondary-foreground" },
+      { name: "Muted", variable: "--muted" },
+      { name: "Muted Foreground", variable: "--muted-foreground" },
+      { name: "Accent", variable: "--accent" },
+      { name: "Accent Foreground", variable: "--accent-foreground" },
+      { name: "Destructive", variable: "--destructive" },
+    ],
+  },
+  {
+    name: "Form",
+    description: "Colors for form elements, borders, and focus rings.",
+    colors: [
+      { name: "Border", variable: "--border" },
+      { name: "Input", variable: "--input" },
+      { name: "Ring", variable: "--ring" },
+    ],
+  },
+  {
+    name: "Sidebar",
+    description: "Colors specific to the sidebar navigation.",
+    colors: [
+      { name: "Sidebar", variable: "--sidebar" },
+      { name: "Sidebar Foreground", variable: "--sidebar-foreground" },
+      { name: "Sidebar Primary", variable: "--sidebar-primary" },
+      { name: "Sidebar Primary Foreground", variable: "--sidebar-primary-foreground" },
+      { name: "Sidebar Accent", variable: "--sidebar-accent" },
+      { name: "Sidebar Accent Foreground", variable: "--sidebar-accent-foreground" },
+      { name: "Sidebar Border", variable: "--sidebar-border" },
+      { name: "Sidebar Ring", variable: "--sidebar-ring" },
+    ],
+  },
+  {
+    name: "Charts",
+    description: "Sequential colors for data visualizations and charts.",
+    colors: [
+      { name: "Chart 1", variable: "--chart-1" },
+      { name: "Chart 2", variable: "--chart-2" },
+      { name: "Chart 3", variable: "--chart-3" },
+      { name: "Chart 4", variable: "--chart-4" },
+      { name: "Chart 5", variable: "--chart-5" },
+    ],
+  },
+]
 ---
 
 <Layout title="Colors — Interfero Design System">
-  <div class="p-6">
-    <h1 class="text-2xl font-semibold">Colors</h1>
+  <div class="p-6 space-y-10">
+    <div>
+      <h1 class="text-2xl font-semibold">Colors</h1>
+      <p class="text-muted-foreground mt-1">All color tokens used in the design system, sourced from CSS custom properties.</p>
+    </div>
+
+    {colorGroups.map((group) => (
+      <section class="space-y-3">
+        <div>
+          <h2 class="text-lg font-medium">{group.name}</h2>
+          <p class="text-sm text-muted-foreground">{group.description}</p>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {group.colors.map((color) => (
+            <div
+              class="color-card rounded-lg border border-border overflow-hidden w-56 shrink-0 flex flex-col"
+              data-var={color.variable}
+            >
+              <div
+                class="h-20"
+                style={`background: var(${color.variable})`}
+              ></div>
+              <div class="p-2 text-xs space-y-0.5 bg-card flex-1">
+                <p class="font-semibold text-sm text-card-foreground">{color.name}</p>
+                <p class="text-muted-foreground font-mono whitespace-nowrap overflow-hidden">{color.variable}</p>
+                <p class="text-muted-foreground font-mono whitespace-nowrap overflow-hidden oklch-value"></p>
+                <p class="text-muted-foreground font-mono whitespace-nowrap overflow-hidden hex-value"></p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    ))}
   </div>
 </Layout>
+
+<script>
+  function cssVarToHex(varName: string): string {
+    const value = getComputedStyle(document.documentElement)
+      .getPropertyValue(varName)
+      .trim();
+    const canvas = document.createElement("canvas");
+    canvas.width = canvas.height = 1;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return "";
+    ctx.fillStyle = value;
+    ctx.fillRect(0, 0, 1, 1);
+    const [r, g, b] = ctx.getImageData(0, 0, 1, 1).data;
+    return (
+      "#" +
+      [r, g, b]
+        .map((x) => x.toString(16).padStart(2, "0"))
+        .join("")
+    );
+  }
+
+  function updateColorCards() {
+    document.querySelectorAll<HTMLElement>(".color-card").forEach((card) => {
+      const varName = card.dataset.var;
+      if (!varName) return;
+
+      const oklchValue = getComputedStyle(document.documentElement)
+        .getPropertyValue(varName)
+        .trim();
+      const hexValue = cssVarToHex(varName);
+
+      const oklchEl = card.querySelector(".oklch-value");
+      const hexEl = card.querySelector(".hex-value");
+      if (oklchEl) oklchEl.textContent = oklchValue;
+      if (hexEl) hexEl.textContent = hexValue.toUpperCase();
+    });
+  }
+
+  document.addEventListener("astro:page-load", updateColorCards);
+  updateColorCards();
+
+  new MutationObserver(updateColorCards).observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["class"],
+  });
+</script>
