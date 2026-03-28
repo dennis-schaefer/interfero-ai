@@ -1,7 +1,6 @@
 import * as React from "react"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
-  AudioWave02Icon,
   PaintBoardIcon,
   TextFontIcon,
   GridViewIcon,
@@ -79,15 +78,12 @@ export function AppSidebar({ currentPath, children }: Props) {
       <Sidebar collapsible="icon" variant={"floating"}>
         <SidebarHeader>
           <div className="flex items-center gap-2 px-1 py-1">
-            <HugeiconsIcon
-              icon={AudioWave02Icon}
-              className="size-5 shrink-0 text-sidebar-primary"
-            />
+            <img src="/favicon.svg" className="size-5 shrink-0" alt="Interfero" />
             <div className="flex flex-col group-data-[collapsible=icon]:hidden">
               <span className="text-sm font-semibold leading-none">
                 Interfero
               </span>
-              <span className="text-xs text-sidebar-foreground/60">
+              <span className="text-xs font-light text-sidebar-foreground/60">
                 Design System
               </span>
             </div>

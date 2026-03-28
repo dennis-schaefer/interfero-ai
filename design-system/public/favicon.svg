@@ -1,3 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 36 36">
-  <path fill="#000" d="M22.25 4h-8.5a1 1 0 0 0-.96.73l-5.54 19.4a.5.5 0 0 0 .62.62l5.05-1.44a1 1 0 0 0 .67-.55L18 14l4.41 8.76a1 1 0 0 0 .67.55l5.05 1.44a.5.5 0 0 0 .62-.62l-5.54-19.4a1 1 0 0 0-.96-.73Z"/>
+  <rect x="3" y="13" width="3" height="10" rx="1.5" fill="oklch(0.558 0.148 165.612)"/>
+  <rect x="7.5" y="8" width="3" height="20" rx="1.5" fill="oklch(0.558 0.148 165.612)"/>
+  <rect x="12" y="11" width="3" height="14" rx="1.5" fill="oklch(0.558 0.148 165.612)"/>
+  <rect x="16.5" y="5" width="3" height="26" rx="1.5" fill="oklch(0.558 0.148 165.612)"/>
+  <rect x="21" y="3" width="3" height="30" rx="1.5" fill="oklch(0.558 0.148 165.612)"/>
+  <rect x="25.5" y="9" width="3" height="18" rx="1.5" fill="oklch(0.558 0.148 165.612)"/>
+  <rect x="30" y="14" width="3" height="8" rx="1.5" fill="oklch(0.558 0.148 165.612)"/>
 </svg>
