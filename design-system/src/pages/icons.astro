@@ -1,9 +1,31 @@
 ---
 import Layout from "@/layouts/main.astro"
+import { IconsGrid } from "@/components/IconsGrid"
 ---
 
 <Layout title="Icons — Interfero Design System">
-  <div class="p-6">
-    <h1 class="text-2xl font-semibold">Icons</h1>
+  <div class="p-6 space-y-6">
+    <div>
+      <h1 class="text-2xl font-semibold">Icons</h1>
+      <p class="text-muted-foreground mt-1">Icon library used throughout Interfero.</p>
+    </div>
+
+    <div class="flex items-center gap-3 rounded-lg border border-border bg-muted/40 px-4 py-3 text-sm">
+      <span class="text-muted-foreground shrink-0">ℹ</span>
+      <p class="text-muted-foreground">
+        Interfero uses the <a href="https://hugeicons.com" target="_blank" rel="noopener noreferrer" class="text-foreground underline underline-offset-4 hover:text-primary">Hugeicons</a> library.
+        The examples below show a representative selection — browse the full set on the Hugeicons website.
+      </p>
+      <a
+        href="https://hugeicons.com"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="ml-auto shrink-0 text-foreground underline underline-offset-4 hover:text-primary whitespace-nowrap"
+      >
+        Browse all →
+      </a>
+    </div>
+
+    <IconsGrid client:load />
   </div>
 </Layout>
