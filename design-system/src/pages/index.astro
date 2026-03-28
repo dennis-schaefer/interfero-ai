@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/main.astro"
+import { Button } from "@/components/ui/button"
+---
+
+<Layout>
+  <div class="flex min-h-svh p-6">
+    <div class="flex max-w-md min-w-0 flex-col gap-4 text-sm leading-loose">
+      <div>
+        <h1 class="font-medium">Interfero | Design System</h1>
+        <Button client:load className="mt-2">Button</Button>
+      </div>
+    </div>
+  </div>
+</Layout>
