@@ -1,5 +1,14 @@
 ---
 import "@/styles/global.css"
+import AppSidebar from "@/components/AppSidebar.tsx"
+import { ViewTransitions } from "astro:transitions"
+
+interface Props {
+  title?: string
+}
+
+const { title } = Astro.props
+const currentPath = Astro.url.pathname
 ---
 
 <html lang="en">
@@ -7,9 +16,17 @@ import "@/styles/global.css"
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Interfero | Design System</title>
+    <title>{title ?? "Interfero | Design System"}</title>
+    <ViewTransitions />
+    <script is:inline>
+      if (localStorage.getItem("theme") === "dark") {
+        document.documentElement.classList.add("dark")
+      }
+    </script>
   </head>
   <body>
-    <slot />
+    <AppSidebar currentPath={currentPath} client:load>
+      <slot />
+    </AppSidebar>
   </body>
 </html>
