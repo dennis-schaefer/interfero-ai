@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/main.astro"
+import { SelectShowcase } from "@/components/SelectShowcase"
+---
+
+<Layout title="Select — Interfero Design System">
+  <div class="p-6 space-y-6">
+    <div>
+      <h1 class="text-2xl font-semibold">Select</h1>
+      <p class="text-muted-foreground mt-1">Displays a list of options for the user to pick from.</p>
+    </div>
+    <SelectShowcase client:load />
+  </div>
+</Layout>
