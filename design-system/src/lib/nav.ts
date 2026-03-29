@@ -19,6 +19,7 @@ export const componentCategories: ComponentCategory[] = [
     label: "Form",
     items: [
       { slug: "button", label: "Button" },
+      { slug: "field", label: "Field" },
       { slug: "input", label: "Input" },
     ],
   },
@@ -36,6 +37,7 @@ export const componentCategories: ComponentCategory[] = [
   { category: "data-display", label: "Data Display", items: [
     { slug: "avatar", label: "Avatar" },
     { slug: "badge", label: "Badge" },
+    { slug: "item", label: "Item" },
   ] },
   { category: "navigation", label: "Navigation", items: [] },
   { category: "overlay", label: "Overlay", items: [] },
