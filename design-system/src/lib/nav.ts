@@ -32,7 +32,9 @@ export const componentCategories: ComponentCategory[] = [
       { slug: "tooltip", label: "Tooltip" },
     ],
   },
-  { category: "data-display", label: "Data Display", items: [] },
+  { category: "data-display", label: "Data Display", items: [
+    { slug: "avatar", label: "Avatar" },
+  ] },
   { category: "navigation", label: "Navigation", items: [] },
   { category: "overlay", label: "Overlay", items: [] },
 ]
