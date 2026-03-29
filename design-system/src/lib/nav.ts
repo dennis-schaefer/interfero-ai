@@ -27,7 +27,8 @@ export const componentCategories: ComponentCategory[] = [
     label: "Feedback",
     items: [
       { slug: "alert", label: "Alert" },
-      { slug: "alert-dialog", label: "Alert Dialog" },
+      { slug: "dialog", label: "Dialog" },
+      { slug: "empty", label: "Empty" },
       { slug: "skeleton", label: "Skeleton" },
       { slug: "tooltip", label: "Tooltip" },
     ],
