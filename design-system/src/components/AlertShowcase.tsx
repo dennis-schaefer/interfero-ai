@@ -103,7 +103,7 @@ function AlertExample({
       </Alert>
       <Collapsible open={open} onOpenChange={setOpen}>
         <CollapsibleTrigger className="text-xs text-muted-foreground hover:text-foreground transition-colors cursor-pointer">
-          {open ? "Code ausblenden ↑" : "Code anzeigen ↓"}
+          {open ? "Hide Code ↑" : "Show Code ↓"}
         </CollapsibleTrigger>
         <CollapsibleContent>
           <pre className="mt-2 rounded-lg border border-border bg-muted/40 p-4 text-xs overflow-x-auto">
