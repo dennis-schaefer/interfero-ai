@@ -39,6 +39,10 @@ export const componentCategories: ComponentCategory[] = [
     { slug: "badge", label: "Badge" },
     { slug: "item", label: "Item" },
   ] },
-  { category: "navigation", label: "Navigation", items: [] },
-  { category: "overlay", label: "Overlay", items: [] },
+  { category: "navigation", label: "Navigation", items: [
+    { slug: "pagination", label: "Pagination" },
+  ] },
+  { category: "overlay", label: "Overlay", items: [
+    { slug: "popover", label: "Popover" },
+  ] },
 ]
