@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/main.astro"
+import { ButtonShowcase } from "@/components/ButtonShowcase"
+---
+
+<Layout title="Button — Interfero Design System">
+  <div class="p-6 space-y-6">
+    <div>
+      <h1 class="text-2xl font-semibold">Button</h1>
+      <p class="text-muted-foreground mt-1">Triggers an action or event.</p>
+    </div>
+    <ButtonShowcase client:load />
+  </div>
+</Layout>
