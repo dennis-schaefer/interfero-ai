@@ -3,8 +3,10 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import {
   Search01Icon,
   ArrowRight01Icon,
+  ArrowDown01Icon,
 } from "@hugeicons/core-free-icons"
 import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
 import {
   Collapsible,
   CollapsibleContent,
@@ -115,6 +117,64 @@ import { ArrowRight01Icon } from "@hugeicons/core-free-icons"
 
 <Button disabled>Disabled</Button>`,
     component: <Button disabled>Disabled</Button>,
+  },
+  {
+    label: "button group — horizontal",
+    code: `import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
+
+<ButtonGroup>
+  <Button variant="outline">Left</Button>
+  <Button variant="outline">Center</Button>
+  <Button variant="outline">Right</Button>
+</ButtonGroup>`,
+    component: (
+      <ButtonGroup>
+        <Button variant="outline">Left</Button>
+        <Button variant="outline">Center</Button>
+        <Button variant="outline">Right</Button>
+      </ButtonGroup>
+    ),
+  },
+  {
+    label: "button group — vertical",
+    code: `import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
+
+<ButtonGroup orientation="vertical">
+  <Button variant="outline">Top</Button>
+  <Button variant="outline">Middle</Button>
+  <Button variant="outline">Bottom</Button>
+</ButtonGroup>`,
+    component: (
+      <ButtonGroup orientation="vertical">
+        <Button variant="outline">Top</Button>
+        <Button variant="outline">Middle</Button>
+        <Button variant="outline">Bottom</Button>
+      </ButtonGroup>
+    ),
+  },
+  {
+    label: "button group — split button",
+    code: `import { Button } from "@/components/ui/button"
+import { ButtonGroup } from "@/components/ui/button-group"
+import { HugeiconsIcon } from "@hugeicons/react"
+import { ArrowDown01Icon } from "@hugeicons/core-free-icons"
+
+<ButtonGroup>
+  <Button variant="default">Deploy</Button>
+  <Button variant="default" size="icon" aria-label="More deploy options" aria-haspopup="true">
+    <HugeiconsIcon icon={ArrowDown01Icon} />
+  </Button>
+</ButtonGroup>`,
+    component: (
+      <ButtonGroup>
+        <Button variant="default">Deploy</Button>
+        <Button variant="default" size="icon" aria-label="More deploy options" aria-haspopup="true">
+          <HugeiconsIcon icon={ArrowDown01Icon} />
+        </Button>
+      </ButtonGroup>
+    ),
   },
 ]
 
