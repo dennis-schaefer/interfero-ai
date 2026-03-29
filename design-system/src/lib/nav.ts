@@ -21,6 +21,7 @@ export const componentCategories: ComponentCategory[] = [
       { slug: "button", label: "Button" },
       { slug: "field", label: "Field" },
       { slug: "input", label: "Input" },
+      { slug: "select", label: "Select" },
     ],
   },
   {
@@ -30,6 +31,7 @@ export const componentCategories: ComponentCategory[] = [
       { slug: "alert", label: "Alert" },
       { slug: "dialog", label: "Dialog" },
       { slug: "empty", label: "Empty" },
+      { slug: "progress", label: "Progress" },
       { slug: "skeleton", label: "Skeleton" },
       { slug: "tooltip", label: "Tooltip" },
     ],
