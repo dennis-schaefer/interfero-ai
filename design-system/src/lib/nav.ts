@@ -34,6 +34,7 @@ export const componentCategories: ComponentCategory[] = [
   },
   { category: "data-display", label: "Data Display", items: [
     { slug: "avatar", label: "Avatar" },
+    { slug: "badge", label: "Badge" },
   ] },
   { category: "navigation", label: "Navigation", items: [] },
   { category: "overlay", label: "Overlay", items: [] },
