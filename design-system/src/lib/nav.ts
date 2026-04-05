@@ -45,6 +45,7 @@ export const componentCategories: ComponentCategory[] = [
   ] },
   { category: "navigation", label: "Navigation", items: [
     { slug: "pagination", label: "Pagination" },
+    { slug: "tabs", label: "Tabs" },
   ] },
   { category: "overlay", label: "Overlay", items: [
     { slug: "popover", label: "Popover" },
