@@ -21,6 +21,7 @@ export const componentCategories: ComponentCategory[] = [
       { slug: "field", label: "Field" },
       { slug: "input", label: "Input" },
       { slug: "select", label: "Select" },
+      { slug: "switch", label: "Switch" },
     ],
   },
   {
