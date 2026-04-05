@@ -32,6 +32,8 @@ export const componentCategories: ComponentCategory[] = [
       { slug: "empty", label: "Empty" },
       { slug: "progress", label: "Progress" },
       { slug: "skeleton", label: "Skeleton" },
+      { slug: "sonner", label: "Sonner" },
+      { slug: "spinner", label: "Spinner" },
       { slug: "tooltip", label: "Tooltip" },
     ],
   },
