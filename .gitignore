@@ -10,5 +10,6 @@
 
 .playwright/
 .playwright-cli/
+*local*
 
 .idea
