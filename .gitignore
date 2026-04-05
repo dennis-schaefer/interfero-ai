@@ -8,4 +8,7 @@
 
 */.env
 
+.playwright/
+.playwright-cli/
+
 .idea
