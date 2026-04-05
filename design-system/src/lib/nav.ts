@@ -11,7 +11,6 @@ export const componentCategories: ComponentCategory[] = [
     items: [
       { slug: "separator", label: "Separator" },
       { slug: "sidebar", label: "Sidebar" },
-      { slug: "sheet", label: "Sheet" },
     ],
   },
   {
@@ -46,5 +45,6 @@ export const componentCategories: ComponentCategory[] = [
   ] },
   { category: "overlay", label: "Overlay", items: [
     { slug: "popover", label: "Popover" },
+    { slug: "sheet", label: "Sheet" },
   ] },
 ]
