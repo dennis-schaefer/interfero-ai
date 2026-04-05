@@ -6,20 +6,11 @@ export type ComponentCategory = {
 
 export const componentCategories: ComponentCategory[] = [
   {
-    category: "layout",
-    label: "Layout",
-    items: [
-      { slug: "separator", label: "Separator" },
-      { slug: "sidebar", label: "Sidebar" },
-    ],
-  },
-  {
     category: "form",
     label: "Form",
     items: [
       { slug: "button", label: "Button" },
       { slug: "field", label: "Field" },
-      { slug: "input", label: "Input" },
       { slug: "select", label: "Select" },
       { slug: "switch", label: "Switch" },
     ],
