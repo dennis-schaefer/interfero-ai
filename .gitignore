@@ -1,4 +1,15 @@
-target/
-.mvn/wrapper/maven-wrapper.jar
+*/target/
+*/.mvn/wrapper/maven-wrapper.jar
+
+*/node_modules/
+*/dist/
+
+*/.astro/
+
+*/.env
+
+.playwright/
+.playwright-cli/
+*local*
 
 .idea

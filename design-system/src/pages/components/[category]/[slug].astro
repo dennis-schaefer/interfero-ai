@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/main.astro"
+import { componentCategories } from "@/lib/nav"
+
+export function getStaticPaths() {
+  return componentCategories.flatMap(({ category, items }) =>
+    items.map(({ slug, label }) => ({
+      params: { category, slug },
+      props: { label },
+    }))
+  )
+}
+
+interface Props {
+  label: string
+}
+
+const { label } = Astro.props
+---
+
+<Layout title={`${label} — Interfero Design System`}>
+  <div class="p-6">
+    <h1 class="text-2xl font-semibold">{label}</h1>
+  </div>
+</Layout>

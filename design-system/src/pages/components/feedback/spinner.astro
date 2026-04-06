@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/main.astro"
+import { SpinnerShowcase } from "@/components/SpinnerShowcase"
+---
+
+<Layout title="Spinner — Interfero Design System">
+  <div class="p-6 space-y-6">
+    <div>
+      <h1 class="text-2xl font-semibold">Spinner</h1>
+      <p class="text-muted-foreground mt-1">An indicator to show a loading state.</p>
+    </div>
+    <SpinnerShowcase client:load />
+  </div>
+</Layout>

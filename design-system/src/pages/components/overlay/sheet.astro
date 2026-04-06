@@ -1,0 +1,14 @@
+---
+import Layout from "@/layouts/main.astro"
+import { SheetShowcase } from "@/components/SheetShowcase"
+---
+
+<Layout title="Sheet — Interfero Design System">
+  <div class="p-6 space-y-6">
+    <div>
+      <h1 class="text-2xl font-semibold">Sheet</h1>
+      <p class="text-muted-foreground mt-1">Extends the Dialog component to display content that complements the main content of the screen.</p>
+    </div>
+    <SheetShowcase client:load />
+  </div>
+</Layout>
