@@ -1,15 +1,25 @@
+### Maven ###
 */target/
 */.mvn/wrapper/maven-wrapper.jar
 
+### Node ###
 */node_modules/
+*/node/
 */dist/
 
+### Astro ###
 */.astro/
 
-*/.env
-
+### Others ###
 .playwright/
 .playwright-cli/
 *local*
 
+### IntelliJ IDEA ###
 .idea
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
