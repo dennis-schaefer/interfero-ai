@@ -1,6 +1,6 @@
 function App() {
   return (
-      <div style={{ fontFamily: 'sans-serif', textAlign: 'center', marginTop: '4rem' }}>
+      <div className={"w-full h-full flex flex-col items-center"}>
         <h1>Welcome to Interfero</h1>
       </div>
   );
