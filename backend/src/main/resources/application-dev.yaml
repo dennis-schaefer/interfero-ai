@@ -1,0 +1,8 @@
+interfero.cors.allwed-origins: "http://localhost:5173"
+---
+management.endpoints.web.exposure.include: "*"
+---
+logging.level:
+  root: INFO
+  io.interfero: DEBUG
+  org.springframework.jdbc: DEBUG

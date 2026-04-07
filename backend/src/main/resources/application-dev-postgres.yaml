@@ -1,0 +1,5 @@
+interfero.datasource:
+  url: jdbc:postgresql://localhost:5432/interfero
+  username: interfero
+  password: interfero
+  driver-class-name: org.postgresql.Driver
