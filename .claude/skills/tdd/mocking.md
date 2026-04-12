@@ -34,6 +34,19 @@ function processPayment(order) {
 }
 ```
 
+```java
+// Easy to mock
+public PaymentResult processPayment(Order order, PaymentClient paymentClient) {
+    return paymentClient.charge(order.getTotal());
+}
+
+// Hard to mock
+public PaymentResult processPayment(Order order) {
+    StripeClient client = new StripeClient(System.getenv("STRIPE_KEY"));
+    return client.charge(order.getTotal());
+}
+```
+
 **2. Prefer SDK-style interfaces over generic fetchers**
 
 Create specific functions for each external operation instead of one generic function with conditional logic:
@@ -50,6 +63,20 @@ const api = {
 const api = {
   fetch: (endpoint, options) => fetch(endpoint, options),
 };
+```
+
+```java
+// GOOD: Each method is independently mockable
+public interface UserApi {
+    User getUser(String id);
+    List<Order> getOrders(String userId);
+    Order createOrder(OrderRequest data);
+}
+
+// BAD: Mocking requires conditional logic inside the mock
+public interface GenericApi {
+    Response fetch(String endpoint, HttpOptions options);
+}
 ```
 
 The SDK approach means:

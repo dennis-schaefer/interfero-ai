@@ -14,6 +14,16 @@ Good interfaces make testing natural:
    }
    ```
 
+   ```java
+   // Testable
+   public void processOrder(Order order, PaymentGateway paymentGateway) {}
+
+   // Hard to test
+   public void processOrder(Order order) {
+       PaymentGateway gateway = new StripeGateway();
+   }
+   ```
+
 2. **Return results, don't produce side effects**
 
    ```typescript
@@ -23,6 +33,16 @@ Good interfaces make testing natural:
    // Hard to test
    function applyDiscount(cart): void {
      cart.total -= discount;
+   }
+   ```
+
+   ```java
+   // Testable
+   public Discount calculateDiscount(Cart cart) { ... }
+
+   // Hard to test
+   public void applyDiscount(Cart cart) {
+       cart.setTotal(cart.getTotal() - discount);
    }
    ```
 

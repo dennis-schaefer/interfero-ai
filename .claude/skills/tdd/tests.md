@@ -14,6 +14,17 @@ test("user can checkout with valid cart", async () => {
 });
 ```
 
+```java
+// GOOD: Tests observable behavior
+@Test
+void userCanCheckoutWithValidCart() {
+    Cart cart = new Cart();
+    cart.add(product);
+    CheckoutResult result = checkout(cart, paymentMethod);
+    assertThat(result.getStatus()).isEqualTo("confirmed");
+}
+```
+
 Characteristics:
 
 - Tests behavior users/callers care about
@@ -33,6 +44,16 @@ test("checkout calls paymentService.process", async () => {
   await checkout(cart, payment);
   expect(mockPayment.process).toHaveBeenCalledWith(cart.total);
 });
+```
+
+```java
+// BAD: Tests implementation details
+@Test
+void checkoutCallsPaymentServiceProcess() {
+    PaymentService mockPayment = mock(PaymentService.class);
+    checkout(cart, mockPayment);
+    verify(mockPayment).process(cart.getTotal());
+}
 ```
 
 Red flags:
@@ -58,4 +79,23 @@ test("createUser makes user retrievable", async () => {
   const retrieved = await getUser(user.id);
   expect(retrieved.name).toBe("Alice");
 });
+```
+
+```java
+// BAD: Bypasses interface to verify
+@Test
+void createUserSavesToDatabase() {
+    createUser(new UserRequest("Alice"));
+    User row = jdbcTemplate.queryForObject(
+        "SELECT * FROM users WHERE name = ?", User.class, "Alice");
+    assertThat(row).isNotNull();
+}
+
+// GOOD: Verifies through interface
+@Test
+void createUserMakesUserRetrievable() {
+    User user = createUser(new UserRequest("Alice"));
+    User retrieved = getUser(user.getId());
+    assertThat(retrieved.getName()).isEqualTo("Alice");
+}
 ```
