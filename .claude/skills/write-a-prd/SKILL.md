@@ -17,7 +17,18 @@ A deep module (as opposed to a shallow module) is one which encapsulates a lot o
 
 Check with the user that these modules match their expectations. Check with the user which modules they want tests written for.
 
-5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD. The PRD should be submitted as a GitHub issue.
+Also take a look at the ARCHITECTURE.md file in the repo if it exists, to understand the existing architecture and how your new modules will fit into it.
+
+If you may need to make architectural changes, be sure to check with the user about this and get their approval before proceeding. Architectural changes can be very disruptive, so it's important to have buy-in from the user before making them.
+
+5. Once you have a complete understanding of the problem and solution, use the template below to write the PRD.
+
+Before submitting the PRD, create a short summary of the PRD and present it to the user for approval. Make any necessary changes based on their feedback.
+
+The PRD should be submitted as a GitHub issue using the CLI command `gh issue create --title "$TITLE" --body "$BODY" [--label "$LABEL"]`.
+
+Always add the label "PRD" to the issue when submitting.
+
 
 <prd-template>
 
