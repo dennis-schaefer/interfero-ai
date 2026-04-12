@@ -1,0 +1,10 @@
+spring.application.name: interfero-backend
+---
+spring:
+  config.import: optional:file:/data/interfero.env[.properties]
+---
+spring.datasource:
+  url: ${interfero.datasource.url:jdbc:h2:file:/data/interfero;AUTO_SERVER=TRUE}
+  username: ${interfero.datasource.username}
+  password: ${interfero.datasource.password}
+  driver-class-name: ${interfero.datasource.driver-class-name:org.h2.Driver}
