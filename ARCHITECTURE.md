@@ -92,7 +92,7 @@ Columns: `topic`, `partition`, `offset`, `timestamp`, `payload`
 - Built-in user management (username + password, stored in DB)
 - Initial admin user created on first start via environment variables (`INTERFERO_ADMIN_USERNAME`, `INTERFERO_ADMIN_PASSWORD`)
 - Additional users can be created via the UI afterwards
-- Stateless authentication via JWT
+- Session-based authentication via Spring Security (server-side in-memory sessions; can be upgraded to Spring Session + JDBC later)
 - OAuth2 support planned for a future version
 
 ### Sensitive Credential Encryption
